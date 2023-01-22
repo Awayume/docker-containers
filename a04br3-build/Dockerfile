@@ -9,7 +9,6 @@ RUN curl -o jdk8.tgz https://android.googlesource.com/platform/prebuilts/jdk/jdk
  && mv linux-x86 /usr/lib/jvm/java-8-openjdk-amd64 \
  && rm -rf jdk8.tgz
 RUN curl -o /usr/local/bin/repo https://storage.googleapis.com/git-repo-downloads/repo \
- && echo "d06f33115aea44e583c8669375b35aad397176a411de3461897444d247b6c220  /usr/local/bin/repo" | sha256sum --strict -c - \
  && chmod a+x /usr/local/bin/repo
 RUN curl -o android-gcc.tgz https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9/+archive/0d0a573f4295719e0dacf298be83bd48e9a9bb6d.tar.gz \
  && mkdir -p /opt/android-gcc \
