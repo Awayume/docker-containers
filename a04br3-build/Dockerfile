@@ -16,5 +16,5 @@ RUN curl -o android-gcc.tgz https://android.googlesource.com/platform/prebuilts/
 RUN sed -i s@PATH=\"@PATH=\"/opt/android-gcc/bin:/opt/android-gcc/aarch64-linux-android:@ /etc/environment \
  && echo "ARCH=\"arm64\"" >> /etc/environment \
  && echo "CROSS_COMPILE=\"aarch64-linux-android-\"" >> /etc/environment \
- && echo "source /etc/environment" >> /root/.bashrc
+ && echo "source /etc/environment" >> /root/.bashrc \
  && echo "source /etc/environment" >> /etc/skel/.bashrc
