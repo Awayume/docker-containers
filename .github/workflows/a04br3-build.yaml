@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - a04br3-build/Dockerfile
+      - 'a04br3-build/**'
 
 jobs:
   build:
