@@ -13,7 +13,9 @@ jobs:
     - name: Build image
       run: docker build -t awayume/a04br3-build:latest a04br3-build
     - name: Push image
+      env:
+        DOCKER_AUTH: ${{secrets.DOCKER_AUTH}}
       run: |
         mkdir -p .docker
-        echo ${{ secrets.DOCKER_AUTH }} > .docker/config.json
+        echo $DOCKER_AUTH > .docker/config.json
         docker push awayume/a04br3-build:latest
