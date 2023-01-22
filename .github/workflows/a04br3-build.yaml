@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - main
-    paths: "a04br3/Dockerfile"
+    paths: "a04br3-build/Dockerfile"
 
 jobs:
   build:
