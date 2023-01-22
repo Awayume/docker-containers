@@ -1,0 +1,19 @@
+name: Build a04br3-build Image
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build image
+      run: docker build -t awayume/a04br3-build:latest a04br3-build
+    - name: Push image
+      run: |
+        mkdir -p .docker
+        echo ${{ secrets.DOCKER_AUTH }} > .docker/config.json
+        docker push awayume/a04br3-build:latest
