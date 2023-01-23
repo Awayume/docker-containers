@@ -13,8 +13,6 @@ RUN curl -o android-gcc.tgz https://android.googlesource.com/platform/prebuilts/
  && tar -zxf android-gcc.tgz -C /opt/android-gcc \
  && chmod a+x /opt/android-gcc/bin/* \
  && rm android-gcc.tgz
-RUN sed -i s@PATH=\"@PATH=\"/opt/android-gcc/bin:/opt/android-gcc/aarch64-linux-android:@ /etc/environment \
- && echo "ARCH=\"arm64\"" >> /etc/environment \
- && echo "CROSS_COMPILE=\"aarch64-linux-android-\"" >> /etc/environment \
- && echo "source /etc/environment" >> /root/.bashrc \
- && echo "source /etc/environment" >> /etc/skel/.bashrc
+ENV PATH /opt/android-gcc/bin:/opt/android-gcc/aarch64-linux-android:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
+ENV ARCH arm64
+ENV CROSS_COMPILE aarch64-linux-android-
